@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опитування з Біології</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>Biology Experiments Hub</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="experiments.html">Експерименти</a></li>
+                <li><a href="resources.html">Ресурси</a></li>
+                <li><a href="quiz.html">Опитування</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="quiz-intro">
+            <h2>Тест з Біології</h2>
+            <p>Перевірте свої знання в галузі біології за допомогою цього тесту. Відповідайте на питання та дізнайтеся,
+                як добре ви знаєте біологічні процеси!</p>
+        </section>
+
+        <section class="quiz">
+            <form id="quizForm">
+                <div class="question">
+                    <h3>1. Що таке фотосинтез?</h3>
+                    <label>
+                        <input type="radio" name="q1" value="a"> Процес, в якому рослини отримують воду з ґрунту
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q1" value="b"> Процес, в якому рослини перетворюють світло на енергію
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q1" value="c"> Процес, в якому рослини поглинають вуглекислий газ
+                    </label><br>
+                </div>
+
+                <div class="question">
+                    <h3>2. Який органел в клітині відповідає за енергетичні процеси?</h3>
+                    <label>
+                        <input type="radio" name="q2" value="a"> Ядро
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q2" value="b"> Мітохондрії
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q2" value="c"> Лізосоми
+                    </label><br>
+                </div>
+
+                <div class="question">
+                    <h3>3. Який процес є основним для розмноження рослин?</h3>
+                    <label>
+                        <input type="radio" name="q3" value="a"> Розподіл клітин
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q3" value="b"> Полінізація
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q3" value="c"> Мейоз
+                    </label><br>
+                </div>
+
+                <div class="question">
+                    <h3>4. Що таке екосистема?</h3>
+                    <label>
+                        <input type="radio" name="q4" value="a"> Сукупність організмів, які взаємодіють у певному
+                        середовищі
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q4" value="b"> Кількість рослин в певному середовищі
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q4" value="c"> Місце проживання окремих видів тварин
+                    </label><br>
+                </div>
+
+                <button type="submit">Перевірити відповіді</button>
+            </form>
+
+            <div id="result"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Biology Experiments Hub</p>
+    </footer>
+
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            let score = 0;
+            const answers = {
+                q1: 'b',
+                q2: 'b',
+                q3: 'b',
+                q4: 'a'
+            };
+
+            const formData = new FormData(event.target);
+
+            formData.forEach((value, key) => {
+                if (answers[key] === value) {
+                    score++;
+                }
+            });
+
+            document.getElementById('result').innerText = `Ваш результат: ${score} з 4`;
+        });
+    </script>
+</body>
+
+</html>
